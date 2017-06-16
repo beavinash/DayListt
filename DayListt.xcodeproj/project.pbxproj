@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		0D4292DB1EF3DBD90015A135 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4292DA1EF3DBD90015A135 /* AppDelegate.swift */; };
-		0D4292DD1EF3DBD90015A135 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4292DC1EF3DBD90015A135 /* ViewController.swift */; };
+		0D4292DD1EF3DBD90015A135 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4292DC1EF3DBD90015A135 /* HomeViewController.swift */; };
 		0D4292E01EF3DBD90015A135 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D4292DE1EF3DBD90015A135 /* Main.storyboard */; };
 		0D4292E31EF3DBD90015A135 /* DayListt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D4292E11EF3DBD90015A135 /* DayListt.xcdatamodeld */; };
 		0D4292E51EF3DBD90015A135 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D4292E41EF3DBD90015A135 /* Assets.xcassets */; };
 		0D4292E81EF3DBD90015A135 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D4292E61EF3DBD90015A135 /* LaunchScreen.storyboard */; };
+		0D9C3A011EF3E1BF00943E46 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9C3A001EF3E1BF00943E46 /* Day.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0D4292D71EF3DBD90015A135 /* DayListt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayListt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D4292DA1EF3DBD90015A135 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0D4292DC1EF3DBD90015A135 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0D4292DC1EF3DBD90015A135 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0D4292DF1EF3DBD90015A135 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D4292E21EF3DBD90015A135 /* DayListt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DayListt.xcdatamodel; sourceTree = "<group>"; };
 		0D4292E41EF3DBD90015A135 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D4292E71EF3DBD90015A135 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D4292E91EF3DBD90015A135 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D9C3A001EF3E1BF00943E46 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +59,13 @@
 			isa = PBXGroup;
 			children = (
 				0D4292DA1EF3DBD90015A135 /* AppDelegate.swift */,
-				0D4292DC1EF3DBD90015A135 /* ViewController.swift */,
+				0D4292DC1EF3DBD90015A135 /* HomeViewController.swift */,
 				0D4292DE1EF3DBD90015A135 /* Main.storyboard */,
 				0D4292E41EF3DBD90015A135 /* Assets.xcassets */,
 				0D4292E61EF3DBD90015A135 /* LaunchScreen.storyboard */,
 				0D4292E91EF3DBD90015A135 /* Info.plist */,
 				0D4292E11EF3DBD90015A135 /* DayListt.xcdatamodeld */,
+				0D9C3A001EF3E1BF00943E46 /* Day.swift */,
 			);
 			path = DayListt;
 			sourceTree = "<group>";
@@ -141,7 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D4292E31EF3DBD90015A135 /* DayListt.xcdatamodeld in Sources */,
-				0D4292DD1EF3DBD90015A135 /* ViewController.swift in Sources */,
+				0D4292DD1EF3DBD90015A135 /* HomeViewController.swift in Sources */,
+				0D9C3A011EF3E1BF00943E46 /* Day.swift in Sources */,
 				0D4292DB1EF3DBD90015A135 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +271,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DYK92P2HLR;
 				INFOPLIST_FILE = DayListt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thethim.DayListt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -280,6 +285,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DYK92P2HLR;
 				INFOPLIST_FILE = DayListt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thethim.DayListt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -306,6 +312,7 @@
 				0D4292EE1EF3DBD90015A135 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
