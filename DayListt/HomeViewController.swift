@@ -15,6 +15,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // property to store the tableview cell data
     var tasks: [Day] = []
     
+    // for deletion
+    var selectedIndex = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -41,11 +44,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if task.important {
             cell.textLabel?.text = "‼️\(task.name)"
         } else {
-            cell.textLabel?.text = "  − \(task.name)"
+            cell.textLabel?.text = "    \(task.name)"
         }
         
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        let task = tasks[indexPath.row]
+        performSegue(withIdentifier: SEGUE_SELECT, sender: task)
     }
     
     // Function to create task days
@@ -74,8 +83,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextVC = segue.destination as! CreateTaskViewController
-        nextVC.previousVC = self
+        
+        if segue.identifier == SEGUE_ADD {
+            let nextVC = segue.destination as! CreateTaskViewController
+            nextVC.previousVC = self
+        }
+        if segue.identifier == SEGUE_SELECT {
+            let nextVC = segue.destination as! CompleteTaskViewController
+            nextVC.task = sender as! Day
+            nextVC.previousVC = self
+        }
     }
     
     override func didReceiveMemoryWarning() {

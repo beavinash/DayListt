@@ -46,6 +46,7 @@
                     <connections>
                         <outlet property="tableView" destination="OaF-nu-CwN" id="HNj-Zs-jco"/>
                         <segue destination="hug-ti-2TW" kind="show" identifier="addSegue" id="7Ni-CW-SGK"/>
+                        <segue destination="JWo-Ra-jSQ" kind="show" identifier="selectSegue" id="Wk3-H7-xgu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -142,6 +143,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Eo-ct-1wF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1601" y="-544"/>
+        </scene>
+        <!--Complete Task View Controller-->
+        <scene sceneID="HHx-bf-3Wd">
+            <objects>
+                <viewController id="JWo-Ra-jSQ" customClass="CompleteTaskViewController" customModule="DayListt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oYd-CD-JT3"/>
+                        <viewControllerLayoutGuide type="bottom" id="nYu-co-H0W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ul1-e5-4vP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="j4b-W9-vqS">
+                                <rect key="frame" x="16" y="84" width="343" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="vcA-YJ-5Y8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="LcF-N8-PVt">
+                                <rect key="frame" x="16" y="143" width="343" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="gIM-nn-Mr4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTG-hS-h2e">
+                                <rect key="frame" x="154" y="212" width="67" height="30"/>
+                                <state key="normal" title="Complete"/>
+                                <connections>
+                                    <action selector="completeTapped:" destination="JWo-Ra-jSQ" eventType="touchUpInside" id="DR6-E3-SK1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VTG-hS-h2e" firstAttribute="centerX" secondItem="ul1-e5-4vP" secondAttribute="centerX" id="5Vw-fS-KcT"/>
+                            <constraint firstItem="j4b-W9-vqS" firstAttribute="top" secondItem="oYd-CD-JT3" secondAttribute="bottom" constant="20" id="9yL-YB-kpH"/>
+                            <constraint firstItem="j4b-W9-vqS" firstAttribute="centerX" secondItem="ul1-e5-4vP" secondAttribute="centerX" id="No1-IE-coh"/>
+                            <constraint firstItem="LcF-N8-PVt" firstAttribute="top" secondItem="j4b-W9-vqS" secondAttribute="bottom" constant="20" id="QuO-43-5yI"/>
+                            <constraint firstItem="LcF-N8-PVt" firstAttribute="centerX" secondItem="ul1-e5-4vP" secondAttribute="centerX" id="SgY-Wa-wR0"/>
+                            <constraint firstItem="VTG-hS-h2e" firstAttribute="top" secondItem="LcF-N8-PVt" secondAttribute="bottom" constant="40" id="oOi-2e-Hsh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="LcF-N8-PVt" id="BB1-eu-4Ku"/>
+                        <outlet property="taskNameLabel" destination="j4b-W9-vqS" id="bn1-qI-oUK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7dq-Ut-Qph" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1600.8" y="146.17691154422789"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="y9T-Xq-hAf">
