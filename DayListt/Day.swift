@@ -10,9 +10,7 @@ import Foundation
 
 class Day {
     var name: String = ""
-    var month: String = ""
-    var day: String = ""
-    var year: String = ""
+    var date: String = ""
     
     var important: Bool = false
 }

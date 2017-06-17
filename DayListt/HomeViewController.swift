@@ -52,28 +52,26 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func makeTasks() -> [Day] {
         let task1 = Day()
         task1.name = "Write notes"
-        task1.month = "06"
-        task1.day = "22"
-        task1.year = "17"
+        task1.date = "02/16/17"
         task1.important = true
         
         let task2 = Day()
         task2.name = "Write poem"
-        task2.month = "06"
-        task2.day = "22"
-        task2.year = "17"
+        task2.date = "02/16/17"
         task2.important = false
         
         let task3 = Day()
         task3.name = "Write notes"
-        task3.month = "06"
-        task3.day = "22"
-        task3.year = "17"
+        task3.date = "02/16/17"
+
         task3.important = true
         
         return [task1, task2, task3]
     }
     
+    @IBAction func addTapped(_ sender: Any) {
+        performSegue(withIdentifier: SEGUE_ADD, sender: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

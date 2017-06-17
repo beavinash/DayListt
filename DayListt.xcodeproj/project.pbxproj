@@ -14,6 +14,8 @@
 		0D4292E51EF3DBD90015A135 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D4292E41EF3DBD90015A135 /* Assets.xcassets */; };
 		0D4292E81EF3DBD90015A135 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D4292E61EF3DBD90015A135 /* LaunchScreen.storyboard */; };
 		0D9C3A011EF3E1BF00943E46 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9C3A001EF3E1BF00943E46 /* Day.swift */; };
+		0D9C3A031EF51E9B00943E46 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9C3A021EF51E9B00943E46 /* Constants.swift */; };
+		0DA4DA5D1EF558A80084BA8E /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA4DA5C1EF558A80084BA8E /* CreateTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		0D4292E71EF3DBD90015A135 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D4292E91EF3DBD90015A135 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D9C3A001EF3E1BF00943E46 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		0D9C3A021EF51E9B00943E46 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0DA4DA5C1EF558A80084BA8E /* CreateTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				0D4292E91EF3DBD90015A135 /* Info.plist */,
 				0D4292E11EF3DBD90015A135 /* DayListt.xcdatamodeld */,
 				0D9C3A001EF3E1BF00943E46 /* Day.swift */,
+				0D9C3A021EF51E9B00943E46 /* Constants.swift */,
+				0DA4DA5C1EF558A80084BA8E /* CreateTaskViewController.swift */,
 			);
 			path = DayListt;
 			sourceTree = "<group>";
@@ -143,10 +149,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D9C3A031EF51E9B00943E46 /* Constants.swift in Sources */,
 				0D4292E31EF3DBD90015A135 /* DayListt.xcdatamodeld in Sources */,
 				0D4292DD1EF3DBD90015A135 /* HomeViewController.swift in Sources */,
 				0D9C3A011EF3E1BF00943E46 /* Day.swift in Sources */,
 				0D4292DB1EF3DBD90015A135 /* AppDelegate.swift in Sources */,
+				0DA4DA5D1EF558A80084BA8E /* CreateTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
