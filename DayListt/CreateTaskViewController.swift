@@ -15,6 +15,8 @@ class CreateTaskViewController: UIViewController {
     @IBOutlet weak var dateNameTextField: UITextField!
     @IBOutlet weak var importantSwitch: UISwitch!
     
+    var previousVC = HomeViewController()
+    
     let datePicker = UIDatePicker()
     
     override func viewDidLoad() {
@@ -25,6 +27,17 @@ class CreateTaskViewController: UIViewController {
     }
     
     @IBAction func addTapped(_ sender: Any) {
+        // create a task using the outlet info
+        let task = Day()
+        task.name = taskNameTextField.text!
+        task.date = dateNameTextField.text!
+        task.important = importantSwitch.isOn
+        
+        // Add this object to the array in HomeViewController to display the data
+        previousVC.tasks.append(task)
+        
+        previousVC.tableView.reloadData()
+        navigationController!.popViewController(animated: true)
         
     }
     

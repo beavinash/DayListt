@@ -72,6 +72,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBAction func addTapped(_ sender: Any) {
         performSegue(withIdentifier: SEGUE_ADD, sender: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as! CreateTaskViewController
+        nextVC.previousVC = self
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
