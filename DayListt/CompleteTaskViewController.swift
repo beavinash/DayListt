@@ -10,7 +10,7 @@ import UIKit
 
 class CompleteTaskViewController: UIViewController {
     
-    var task = Day()
+    var task: Day? = nil
     var previousVC = HomeViewController()
     
     @IBOutlet weak var taskNameLabel: UILabel!
@@ -21,21 +21,22 @@ class CompleteTaskViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        if task.important {
-            taskNameLabel.text = "‼️\(task.name)"
+        if task!.important {
+            taskNameLabel.text = "‼️\(String(describing: task!.name!))"
         } else {
-            taskNameLabel.text = "    \(task.name)"
+            taskNameLabel.text = "    \(String(describing: task!.name!))"
         }
         
         
-        dateLabel.text = task.date
+        dateLabel.text = task!.date
     }
     
     
     @IBAction func completeTapped(_ sender: Any) {
-        previousVC.tasks.remove(at: previousVC.selectedIndex)
-        previousVC.tableView.reloadData()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        context.delete(task!)
         navigationController!.popViewController(animated: true)
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }
     
     override func didReceiveMemoryWarning() {

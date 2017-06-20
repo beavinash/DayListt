@@ -15,21 +15,21 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // property to store the tableview cell data
     var tasks: [Day] = []
     
-    // for deletion
-    var selectedIndex = 0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // tasks data
-        tasks = makeTasks()
         
         // Table View setup
         tableView.delegate = self
         tableView.dataSource = self
         
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getTasks()
+        tableView.reloadData()
     }
     
     // Table View Setup with rows and columns
@@ -42,9 +42,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let task = tasks[indexPath.row]
         
         if task.important {
-            cell.textLabel?.text = "‼️\(task.name)"
+            cell.textLabel?.text = "‼️ \(String(describing: task.name!))"
         } else {
-            cell.textLabel?.text = "    \(task.name)"
+            cell.textLabel?.text = "      \(String(describing: task.name!))"
         }
         
         
@@ -52,46 +52,33 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row
         let task = tasks[indexPath.row]
         performSegue(withIdentifier: SEGUE_SELECT, sender: task)
     }
     
-    // Function to create task days
-    func makeTasks() -> [Day] {
-        let task1 = Day()
-        task1.name = "Write notes"
-        task1.date = "02/16/17"
-        task1.important = true
-        
-        let task2 = Day()
-        task2.name = "Write poem"
-        task2.date = "02/16/17"
-        task2.important = false
-        
-        let task3 = Day()
-        task3.name = "Write notes"
-        task3.date = "02/16/17"
-
-        task3.important = true
-        
-        return [task1, task2, task3]
-    }
+    
     
     @IBAction func addTapped(_ sender: Any) {
         performSegue(withIdentifier: SEGUE_ADD, sender: nil)
     }
     
+    func getTasks() {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        do {
+            tasks = try context.fetch(Day.fetchRequest()) as! [Day]
+            print(tasks)
+        } catch {
+            print("We have some error")
+        }
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == SEGUE_ADD {
-            let nextVC = segue.destination as! CreateTaskViewController
-            nextVC.previousVC = self
-        }
+        
         if segue.identifier == SEGUE_SELECT {
             let nextVC = segue.destination as! CompleteTaskViewController
             nextVC.task = sender as! Day
-            nextVC.previousVC = self
         }
     }
     
