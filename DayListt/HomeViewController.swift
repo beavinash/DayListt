@@ -9,7 +9,7 @@
 import UIKit
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     // property to store the tableview cell data
@@ -34,17 +34,32 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // Table View Setup with rows and columns
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
+        if tasks.count == 0 {
+            return 1
+        } else {
+            return tasks.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        let task = tasks[indexPath.row]
         
-        if task.important {
-            cell.textLabel?.text = "‼️ \(String(describing: task.name!))"
+        if tasks.count == 0 {
+            cell.textLabel?.text = "There are no Tasks"
         } else {
-            cell.textLabel?.text = "      \(String(describing: task.name!))"
+            
+            let task = tasks[indexPath.row]
+            
+            if task.important {
+                cell.textLabel?.text = "‼️ \(String(describing: task.name!))"
+                cell.detailTextLabel?.text = task.date!
+            } else {
+                cell.textLabel?.text = "      \(String(describing: task.name!))"
+                cell.detailTextLabel?.text = task.date!
+            }
+            
+            
+            
         }
         
         
@@ -52,8 +67,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let task = tasks[indexPath.row]
-        performSegue(withIdentifier: SEGUE_SELECT, sender: task)
+        if tasks.count == 0 {
+            return
+        } else {
+            let task = tasks[indexPath.row]
+            performSegue(withIdentifier: SEGUE_SELECT, sender: task)
+        }
     }
     
     
@@ -66,7 +85,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         do {
             tasks = try context.fetch(Day.fetchRequest()) as! [Day]
-            print(tasks)
         } catch {
             print("We have some error")
         }
@@ -78,7 +96,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if segue.identifier == SEGUE_SELECT {
             let nextVC = segue.destination as! CompleteTaskViewController
-            nextVC.task = sender as! Day
+            nextVC.task = sender as? Day
         }
     }
     
@@ -86,7 +104,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
