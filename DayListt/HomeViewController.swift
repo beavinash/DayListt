@@ -46,6 +46,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if tasks.count == 0 {
             cell.textLabel?.text = "There are no Tasks"
+            cell.detailTextLabel?.text = ""
         } else {
             
             let task = tasks[indexPath.row]
